@@ -17,7 +17,7 @@ public class LoginFunctionality extends BaseTest {
 
         HomePage homePage = goToHomePageClass();
         LoginPage loginPage = homePage.goToLoginPage();
-        HomePage homePage1 = loginPage.sendData(data.get("MobileNo"), data.get("Password"));
+        homePage = loginPage.sendDataAndVerifyLoginStatus(data.get("MobileNo"), data.get("Password"));
 
     }
 

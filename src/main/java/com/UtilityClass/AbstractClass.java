@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -90,6 +91,26 @@ public class AbstractClass {
     public void switchWindows() {
         ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(windowHandles.get(1));
+    }
+
+    public boolean isElementDisplayed(WebElement element) {
+        boolean abc = element.isDisplayed();
+        return abc;
+    }
+
+    public void clickElement(WebElement ele) {
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript("arguments[0].click();", ele);
+    }
+
+    public void switchTab(int n) {
+        ArrayList<String> windowHandles = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(windowHandles.get(n));
+    }
+
+    public void waitForWebElementToAppear(WebElement ele) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOf(ele));
     }
 
 }

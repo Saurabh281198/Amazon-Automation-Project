@@ -148,7 +148,7 @@
     <configuration>
         <testFailureIgnore>true</testFailureIgnore>
           <suiteXmlFiles>
-            <suiteXmlFile>testng.xml</suiteXmlFile>
+            <suiteXmlFile>addingItems.xml</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
       </plugin>

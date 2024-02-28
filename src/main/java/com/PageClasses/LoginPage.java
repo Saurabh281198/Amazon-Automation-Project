@@ -24,10 +24,18 @@ public class LoginPage extends AbstractClass {
     @FindBy(css = "#auth-signin-button .a-button-inner")
     WebElement signInBtn;
 
-    @FindBy(className = "a-list-item")
+    @FindBy(css = ".a-list-item")
     WebElement msgElement;
 
-    By msg = By.cssSelector(".a-list-item");
+    //.a-alert-content .a-list-item
+
+    @FindBy(css = "input[id='input-box-otp']")
+    WebElement otpElement;
+
+    @FindBy(css = "#cvf-submit-otp-button .a-button-input")
+    WebElement submitElement;
+
+    By msg = By.cssSelector(".a-alert-content .a-list-item");
 
     By pass = By.id("ap_password");
 
@@ -37,7 +45,16 @@ public class LoginPage extends AbstractClass {
         PageFactory.initElements(driver, this);
     }
 
-    public HomePage sendData(String mobileNo, String password) throws InterruptedException {
+    public void verifyLoginDetails() {
+
+        if (msgElement.getText().trim().contains("incorrect")) {
+            System.out.println("The credentails are invalid");
+        } else {
+            System.out.println("The credentails are valid");
+        }
+    }
+
+    public HomePage sendDataAndVerifyLoginStatus(String mobileNo, String password) {
 
         mobileNoInputBox.sendKeys(mobileNo);
         continueBtn.click();
@@ -45,15 +62,23 @@ public class LoginPage extends AbstractClass {
         passwordInputBox.sendKeys(password);
         signInBtn.click();
 
-        if(msgElement.getText().contains("Incorrect")) {
-            waitForElementToAppear(msg);
-            System.out.println(msgElement.getText());
-        }
+        verifyLoginDetails();
 
-        Thread.sleep(2000);
         HomePage homePage = new HomePage(driver);
         return homePage;
 
+    }
+
+    public HomePage sendCorrectDataAndLogin(String mobileNo, String password) {
+
+        mobileNoInputBox.sendKeys(mobileNo);
+        continueBtn.click();
+        waitForElementToAppear(pass);
+        passwordInputBox.sendKeys(password);
+        signInBtn.click();
+
+        HomePage homePage = new HomePage(driver);
+        return homePage;
     }
 
 }
