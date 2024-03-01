@@ -27,6 +27,9 @@ public class HomePage extends AbstractClass {
     @FindBy(xpath = "//input[@name='submit.add-to-cart']")
     WebElement addToCart;
 
+    @FindBy(id = "nav-logo-sprites")
+    WebElement amazonIn;
+
     By autoSuggestLocator = By.cssSelector(".s-suggestion-container div");
 
     By signIn = By.cssSelector(".nav-action-signin-button");
@@ -48,7 +51,7 @@ public class HomePage extends AbstractClass {
 
     }
 
-    public void searchProduct(String[] productName, String productType) throws InterruptedException {
+    public CartPage searchProduct(String[] productName) {
 
         for (int a = 0; a < productName.length; a++) {
             typeDataOnSearchBox(productName[a]);
@@ -63,19 +66,18 @@ public class HomePage extends AbstractClass {
                     }
                 }
             }
-            for (int i = 0; i < searchedProduct.size(); i++) {
-                if (searchedProduct.get(i)
-                        .findElement(By.xpath("//span[@class='a-badge-label-inner a-text-ellipsis']/span")).getText()
-                        .contains(productType)) {
-                    WebElement targElement = searchedProduct.get(i).findElement(By.xpath("//div[@data-cy='title-recipe']/h2/a"));
-                    clickElement(targElement);
-                    break;
-                }
-            }
-            switchTab(1);
+            WebElement targElement = searchedProduct.get(0)
+                    .findElement(By.xpath("//div[@data-cy='title-recipe']/h2/a"));
+            clickElement(targElement);
+            switchTab(a + 1);
             waitForWebElementToAppear(addToCart);
             clickElement(addToCart);
         }
-    }
 
+        switchTab(0);
+        clickOnCartIcon();
+        CartPage cartPage = new CartPage(driver);
+        return cartPage;
+
+    }
 }

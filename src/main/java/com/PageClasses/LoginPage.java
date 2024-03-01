@@ -54,7 +54,7 @@ public class LoginPage extends AbstractClass {
         }
     }
 
-    public HomePage sendDataAndVerifyLoginStatus(String mobileNo, String password) {
+    public HomePage sendDataAndVerifyLoginStatus(String mobileNo, String password) throws InterruptedException {
 
         mobileNoInputBox.sendKeys(mobileNo);
         continueBtn.click();
@@ -64,21 +64,11 @@ public class LoginPage extends AbstractClass {
 
         verifyLoginDetails();
 
+        //Thread.sleep(10000);
+        
         HomePage homePage = new HomePage(driver);
         return homePage;
 
-    }
-
-    public HomePage sendCorrectDataAndLogin(String mobileNo, String password) {
-
-        mobileNoInputBox.sendKeys(mobileNo);
-        continueBtn.click();
-        waitForElementToAppear(pass);
-        passwordInputBox.sendKeys(password);
-        signInBtn.click();
-
-        HomePage homePage = new HomePage(driver);
-        return homePage;
     }
 
 }

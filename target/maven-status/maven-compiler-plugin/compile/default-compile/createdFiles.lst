@@ -1,8 +1,1 @@
-com\PageClasses\CartPage.class
-com\PageClasses\HomePage.class
-com\PageClasses\OrderPage.class
-com\PageClasses\AddressPage.class
-com\PageClasses\CheckoutPage.class
-com\UtilityClass\AbstractClass.class
 com\UtilityClass\ExtentReportsClass.class
-com\PageClasses\LoginPage.class
