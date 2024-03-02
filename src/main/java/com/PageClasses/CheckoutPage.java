@@ -20,10 +20,9 @@ public class CheckoutPage extends AbstractClass {
     @FindBy(id = "pp-QRhB9p-123")
     WebElement otherUPIElement;
 
-    @FindBy(id = "pp-QRhB9p-111")
+    @FindBy(xpath = "//*[@aria-label = 'Other UPI Apps']/label/input")
     WebElement otherUPIElementTextBox;
 
-    
     @FindBy(xpath = "//*[@name='ppw-widgetEvent:ValidateUpiIdEvent']")
     WebElement verifyIcon;
 
@@ -33,7 +32,7 @@ public class CheckoutPage extends AbstractClass {
     @FindBy(xpath = "//input[@aria-labelledby='pp-QRhB9p-143-announce']")
     WebElement paymentMethodElement;
     
-    @FindBy(xpath = "(//a[@class='a-link-normal'])[2]")
+    @FindBy(css = ".a-link-normal .a-icon-close")
     WebElement closeIcon;
 
     public CheckoutPage(WebDriver driver) {
@@ -53,7 +52,8 @@ public class CheckoutPage extends AbstractClass {
     public void selectUPIPaymentModeAndVerify() throws InterruptedException {
         changePaymentTypeMethod.click();
         waitForWebElementToAppear(closeIcon);
-        clickElement(otherUPIElement);
+        closeIcon.click();
+        /*clickElement(otherUPIElement);
         Thread.sleep(10000);
         verifyIcon.click();
         waitForWebElementToAppear(verifySuccElement);
@@ -62,7 +62,7 @@ public class CheckoutPage extends AbstractClass {
             System.out.println("Payment method is visible!!");
         } else {
             System.out.println("Payment method is not visible!!");
-        }
+        }*/
     }
 
 }

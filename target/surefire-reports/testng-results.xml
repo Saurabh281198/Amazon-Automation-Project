@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-02-29T02:43:36 IST" name="Amazon" finished-at="2024-02-29T02:44:14 IST" duration-ms="37621">
+  <suite started-at="2024-03-01T23:07:26 IST" name="Amazon" finished-at="2024-03-01T23:08:22 IST" duration-ms="56640">
     <groups>
     </groups>
-    <test started-at="2024-02-29T02:43:36 IST" name="Adding To Cart Functionality" finished-at="2024-02-29T02:44:14 IST" duration-ms="37621">
+    <test started-at="2024-03-01T23:07:26 IST" name="Adding To Cart Functionality" finished-at="2024-03-01T23:08:22 IST" duration-ms="56640">
       <class name="com.amazon.TestClasses.AdditionOfProducts">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.amazon.TestClasses.AdditionOfProducts@6b419da]" started-at="2024-02-29T02:43:37 IST" name="launchBrowser" finished-at="2024-02-29T02:43:43 IST" duration-ms="6530" status="PASS">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.amazon.TestClasses.AdditionOfProducts@6b419da]" started-at="2024-03-01T23:07:26 IST" name="launchBrowser" finished-at="2024-03-01T23:07:33 IST" duration-ms="6567" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method signature="AdditionOfProductsAndNavigation()[pri:0, instance:com.amazon.TestClasses.AdditionOfProducts@6b419da]" started-at="2024-02-29T02:43:43 IST" name="AdditionOfProductsAndNavigation" finished-at="2024-02-29T02:44:14 IST" duration-ms="30480" status="PASS">
+        <test-method signature="AdditionOfProductsAndNavigation()[pri:0, instance:com.amazon.TestClasses.AdditionOfProducts@6b419da]" started-at="2024-03-01T23:07:33 IST" name="AdditionOfProductsAndNavigation" finished-at="2024-03-01T23:08:22 IST" duration-ms="49318" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AdditionOfProductsAndNavigation -->

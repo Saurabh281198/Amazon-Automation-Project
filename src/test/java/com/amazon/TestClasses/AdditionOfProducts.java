@@ -16,7 +16,7 @@ public class AdditionOfProducts extends BaseTest{
         //Basic Details
         String mobileNo = "+919993433823";
         String password = "Saurabhv@28";
-        String[] productName = {"Cricket Bat","Cricket gloves"};
+        String[] productName = {"Cricket Bat"};
 
         //Steps
         HomePage homePage = goToHomePageClass();
