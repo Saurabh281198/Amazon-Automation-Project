@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.UtilityClass.AbstractClass;
 
 public class CheckoutPage extends AbstractClass {
@@ -17,23 +16,26 @@ public class CheckoutPage extends AbstractClass {
     @FindBy(id = "payChangeButtonId")
     WebElement changePaymentTypeMethod;
 
-    @FindBy(id = "pp-QRhB9p-123")
+    @FindBy(xpath = "//*[@aria-label = 'Other UPI Apps']/label/input")
     WebElement otherUPIElement;
 
-    @FindBy(xpath = "//*[@aria-label = 'Other UPI Apps']/label/input")
+    @FindBy(xpath = "//input[@placeholder='Enter UPI ID']")
     WebElement otherUPIElementTextBox;
 
     @FindBy(xpath = "//*[@name='ppw-widgetEvent:ValidateUpiIdEvent']")
     WebElement verifyIcon;
 
-    @FindBy(css =  "#pp-QRhB9p-115 span")
+    @FindBy(css =  ".a-color-success.a-text-beside-button")
     WebElement verifySuccElement;
     
-    @FindBy(xpath = "//input[@aria-labelledby='pp-QRhB9p-143-announce']")
+    @FindBy(xpath = "//*[@class='a-button-inner'] //input[@name='ppw-widgetEvent:SetPaymentPlanSelectContinueEvent']")
     WebElement paymentMethodElement;
     
     @FindBy(css = ".a-link-normal .a-icon-close")
     WebElement closeIcon;
+
+    @FindBy(css = ".a-size-medium.a-color-success.a-text-bold span span")
+    WebElement expectedDeliveryDate;
 
     public CheckoutPage(WebDriver driver) {
         super(driver);
@@ -49,20 +51,26 @@ public class CheckoutPage extends AbstractClass {
         }
     }
 
+    public void verifyPaymentModeEnabledAndProceed() {
+        if (paymentMethodElement.isEnabled()==true) {
+            System.out.println("Payment method is visible!!");
+            clickElement(paymentMethodElement);
+            waitForWebElementToAppear(expectedDeliveryDate);
+            System.out.println(expectedDeliveryDate.getText());
+        } else {
+            System.out.println("Payment method is not visible. Please enter appropraite UPI details!!");
+        }
+    }
+
     public void selectUPIPaymentModeAndVerify() throws InterruptedException {
         changePaymentTypeMethod.click();
         waitForWebElementToAppear(closeIcon);
-        closeIcon.click();
-        /*clickElement(otherUPIElement);
-        Thread.sleep(10000);
+        scrollToWebElement(otherUPIElement);
+        clickElement(otherUPIElement);
+        Thread.sleep(15000);
         verifyIcon.click();
         waitForWebElementToAppear(verifySuccElement);
-        System.out.println(verifySuccElement.getText());
-        if (paymentMethodElement.isEnabled()==true) {
-            System.out.println("Payment method is visible!!");
-        } else {
-            System.out.println("Payment method is not visible!!");
-        }*/
+        verifyPaymentModeEnabledAndProceed();
     }
 
 }

@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.UtilityClass.AbstractClass;
 
 public class LoginPage extends AbstractClass {
@@ -48,9 +47,9 @@ public class LoginPage extends AbstractClass {
     public void verifyLoginDetails() {
 
         if (msgElement.getText().trim().contains("incorrect")) {
-            System.out.println("The credentails are invalid");
+            System.out.println("The credentails are invalid!!");
         } else {
-            System.out.println("The credentails are valid");
+            System.out.println("The credentails are valid!!");
         }
     }
 

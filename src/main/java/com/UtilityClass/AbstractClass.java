@@ -3,7 +3,6 @@ package com.UtilityClass;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -116,6 +115,11 @@ public class AbstractClass {
     public void scrollToWebElement(WebElement ele) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView()", ele);
+    }
+
+    public void moveToElementAndClick(WebElement ele) {
+        Actions act = new Actions(driver);
+        act.moveToElement(ele).click().build().perform();
     }
 
 }

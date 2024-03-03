@@ -1,7 +1,6 @@
 package com.amazon.TestClasses;
 
 import org.testng.annotations.Test;
-
 import com.PageClasses.CartPage;
 import com.PageClasses.CheckoutPage;
 import com.PageClasses.HomePage;
@@ -16,7 +15,7 @@ public class AdditionOfProducts extends BaseTest{
         //Basic Details
         String mobileNo = "+919993433823";
         String password = "Saurabhv@28";
-        String[] productName = {"Cricket Bat"};
+        String[] productName = {"Cricket Gloves"};
 
         //Steps
         HomePage homePage = goToHomePageClass();
