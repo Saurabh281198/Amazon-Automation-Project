@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Amazon">
+<listeners>
+<listener class-name = "com.amazon.BaseTestClass.Listeners"/>
+</listeners>
+<test name = "Adding To Cart Functionality">
+<classes>
+<class name = "com.amazon.TestClasses.AddressVerficationAndUpdation"/>
+</classes>
+</test> <!--Test-->
+</suite> <!--Suite-->

@@ -8,10 +8,11 @@ import org.testng.annotations.Test;
 import com.PageClasses.HomePage;
 import com.PageClasses.LoginPage;
 import com.amazon.BaseTestClass.BaseTest;
+import com.amazon.BaseTestClass.RetryClass;
 
 public class LoginFunctionality extends BaseTest {
 
-    @Test(dataProvider = "getData")
+    @Test(dataProvider = "getData", retryAnalyzer = RetryClass.class)
     public void testLoginCases(HashMap<String, String> data) throws InterruptedException {
 
         HomePage homePage = goToHomePageClass();

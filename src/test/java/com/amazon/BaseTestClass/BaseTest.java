@@ -13,6 +13,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.annotations.AfterMethod;
@@ -83,11 +84,15 @@ public class BaseTest {
     }
 
     public void takeScreenshot(String name, WebDriver driver) throws IOException {
-
         File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         File dest = new File(System.getProperty("user.dir") + "\\Reports\\" + name + ".png");
         FileUtils.copyFile(src, dest);
+    }
 
+    public void takeScreenshotOfSpecificElement(String name, WebElement ele) throws IOException {
+        File src = ele.getScreenshotAs(OutputType.FILE);
+        File dest = new File(System.getProperty("user.dir") + "\\Reports\\" + name + ".png");
+        FileUtils.copyFile(src, dest);
     }
 
 }

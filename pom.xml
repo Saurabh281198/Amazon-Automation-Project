@@ -148,7 +148,7 @@
     <configuration>
         <testFailureIgnore>true</testFailureIgnore>
           <suiteXmlFiles>
-            <suiteXmlFile>addingItems.xml</suiteXmlFile>
+            <suiteXmlFile>addressChange.xml</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
       </plugin>

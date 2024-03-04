@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.UtilityClass.AbstractClass;
 
 public class HomePage extends AbstractClass {
@@ -78,5 +77,11 @@ public class HomePage extends AbstractClass {
         CartPage cartPage = new CartPage(driver);
         return cartPage;
 
+    }
+
+    public AddressPage verifyAddressAndChange() {
+        clickOnDeliverToUser();
+        AddressPage addressPage = new AddressPage(driver);
+        return addressPage;
     }
 }

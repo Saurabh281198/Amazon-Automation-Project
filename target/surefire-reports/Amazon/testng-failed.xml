@@ -6,13 +6,12 @@
   </listeners>
   <test thread-count="5" name="Adding To Cart Functionality(failed)" verbose="0">
     <classes>
-      <class name="com.amazon.TestClasses.AdditionOfProducts">
+      <class name="com.amazon.TestClasses.AddressVerficationAndUpdation">
         <methods>
-          <include name="AdditionOfProductsAndNavigation"/>
           <include name="launchBrowser"/>
-          <include name="closeBrowser"/>
+          <include name="addressTest"/>
         </methods>
-      </class> <!-- com.amazon.TestClasses.AdditionOfProducts -->
+      </class> <!-- com.amazon.TestClasses.AddressVerficationAndUpdation -->
     </classes>
   </test> <!-- Adding To Cart Functionality(failed) -->
 </suite> <!-- Failed suite [Amazon] -->

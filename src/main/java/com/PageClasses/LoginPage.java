@@ -63,7 +63,7 @@ public class LoginPage extends AbstractClass {
 
         verifyLoginDetails();
 
-        //Thread.sleep(10000);
+        //Thread.sleep(15000);
         
         HomePage homePage = new HomePage(driver);
         return homePage;

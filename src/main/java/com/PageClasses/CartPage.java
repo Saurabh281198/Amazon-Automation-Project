@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.UtilityClass.AbstractClass;
 
 public class CartPage extends AbstractClass {
@@ -25,6 +24,5 @@ public class CartPage extends AbstractClass {
         CheckoutPage checkoutPage = new CheckoutPage(driver);
         return checkoutPage;
     }
-
 
 }
